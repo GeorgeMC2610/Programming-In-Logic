@@ -1,0 +1,1 @@
+family(person(torn, fox, dateofbirth(7, may, 1950), works(bbe, 15200)), person(ann, fox, dateofbirth(9, may, 1951), works(none, none)), []).
