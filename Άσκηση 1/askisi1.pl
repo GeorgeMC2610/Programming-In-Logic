@@ -1,1 +1,1 @@
-family(person(torn, fox, dateofbirth(7, may, 1950), works(bbe, 15200)), person(ann, fox, dateofbirth(9, may, 1951), works(none, none)), []).
+family(person(torn, fox, date(7, may, 1950), works(bbe, 15200)), person(ann, fox, date(9, may, 1951), unemployed), [person(pat, fox, date(5, may, 1973), unemployed), person(jim, fox, date(5, may, 1973), unemployed)]).
