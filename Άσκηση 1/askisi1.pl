@@ -8,3 +8,5 @@ exists(Y) :- family(X, Y, Z).
 /* Ορίζουμε το κατηγόρημα dateofbirth να υπάρχει για κάθε γονέα. */
 dateofbirth(X, Y) :- family(person(A, B, date(C, X, Y), D), E, F).
 dateofbirth(X, Y) :- family(E, person(A, B, date(C, X, Y), D), F).
+
+%salary(X, Y) :- family(person())
