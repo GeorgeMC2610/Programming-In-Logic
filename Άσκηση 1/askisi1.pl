@@ -9,4 +9,6 @@ exists(Y) :- family(X, Y, Z).
 dateofbirth(X, Y) :- family(person(A, B, date(C, X, Y), D), E, F).
 dateofbirth(X, Y) :- family(E, person(A, B, date(C, X, Y), D), F).
 
-%salary(X, Y) :- family(person())
+/* Ορίζουμε το κατηγόρημα salary να υπάρχει για κάθε εργαζόμενο γονέα. */
+salary(X, Y) :- family(person(A, B, C, works(X, Y)), W, F).
+salary(X, Y) :- family(H, person(A, B, C, works(X, Y)), F).
