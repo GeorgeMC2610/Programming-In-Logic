@@ -1,3 +1,5 @@
+/* Με την παρακάτω σειρά ορίζονται οι οικογένειες: */
+/*                                  ΠΑΤΕΡΑΣ                                                                                  ΜΗΤΕΡΑ                                                                                ΠΑΙΔΙ Α'                                                                  ΠΑΙΔΙ Β'                                                                                     ΠΑΙΔΙ Γ'                                        */
 family(person(torn,         fox,            date(7, may, 1950),      works(bbe, 15200)),        person(ann,       fox,           date(9, may, 1951),       unemployed),           [person(pat,       fox,           date(5, may, 1973),        unemployed),              person(jim,       fox,       date(5, may, 1973),        unemployed)]).
 family(person(john,         wick,           date(19, october, 1978), works(meta, 65000)),       person(julia,     wick,          date(31, january, 1982),  works(razer, 10150)),  [person(marianne,  wick,          date(1, february, 2009),   unemployed),              person(patrick,   wick,      date(29, july, 2011),      unemployed)]).
 family(person(marinos,      papadakis,      date(30, june, 1932),    works(retired, 2400)),     person(amalia,    papadaki,      date(26, april, 1934),    works(asus, 2000)),    [person(emmanouil, papadakis,     date(11, september, 1968), works(attikiodos, 3000)), person(dimitrios, papadakis, date(29, september, 1973), works(lg, 1200)),              person(elena, papadaki, date(25, february, 1976), works(samsung, 1200))]).
@@ -12,15 +14,9 @@ exists(X)         :- family(X, Y, Z).
 exists(Y)         :- family(X, Y, Z).
 
 /* Ορίζουμε το κατηγόρημα dateofbirth να υπάρχει για κάθε γονέα. */
-%dateofbirth(X, Y) :- family(person(A, B, date(C, X, Y), D), E, F).
-%dateofbirth(X, Y) :- family(E, person(A, B, date(C, X, Y), D), F).
-
 dateofbirth(X, Y) :- exists(person(A, B, date(C, X, Y), D)).
 
 /* Ορίζουμε το κατηγόρημα salary να υπάρχει για κάθε εργαζόμενο γονέα. */
-%salary(X, Y) :- family(person(A, B, C, works(X, Y)), W, F).
-%salary(X, Y) :- family(H, person(A, B, C, works(X, Y)), F).
-
 salary(X, Y) :- exists(person(A, B, C, works(X, Y))).
 
 /* ΑΥΤΟ ΔΟΥΛΕΥΕΙ!!! */
