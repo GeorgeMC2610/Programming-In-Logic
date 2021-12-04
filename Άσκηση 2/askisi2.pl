@@ -2,5 +2,4 @@
 common_list([], []).
 common_list([X], [X]).
 
-common_list([H | L1], [K | L2]):- member(K, L1), common_list(L1, L2).
-common_list([H | L1], [K | L2]):- member(H, L2), common_list(L1, L2).
+common_list(L1, L2) :- member(E, L1), member(E, L2).
