@@ -6,6 +6,8 @@
 5. TAKE NEWS_PAPER.
 */
 
-action_list([car]).
-
-go_to(X) :- member(car, action_list([X])).
+go_to(gas_station)      :- write("You are now in the gas station.").
+open(car_door)          :- write("Opened car door.").
+open(gas_station_door)  :- write("Opened gas station door.").
+take(soda)              :- write("Took soda.").
+take(news_paper)        :- write("Took newspaper.").
