@@ -124,3 +124,25 @@ connect(30, 36).
 %31
 connect(31, 25).
 connect(31, 32).
+
+%32
+connect(32, 31).
+connect(32, 33).
+connect(32, finish).
+
+%33
+connect(33, 32).
+connect(33, 34).
+
+%34
+connect(34, 28).
+connect(34, 33).
+connect(34, 35).
+
+%35
+connect(35, 34).
+connect(35, 36).
+
+%36
+connect(36, 30).
+connect(36, 35).
