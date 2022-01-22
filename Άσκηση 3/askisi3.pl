@@ -146,3 +146,5 @@ connect(35, 36).
 %36
 connect(36, 30).
 connect(36, 35).
+
+is_combo(X, Y) :- connect(X, Y); connect(Y, X).
