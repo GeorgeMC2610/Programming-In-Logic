@@ -148,3 +148,11 @@ connect(36, 30).
 connect(36, 35).
 
 is_combo(X, Y) :- connect(X, Y); connect(Y, X).
+
+pathlist([]).
+
+append([], X, X).
+append([H | Tail], X, [H | Tail2]) :- append(Tail, X, Tail2).
+
+should_i_stop(X) :- X < 50.
+find_path(X) :- H is X+1, is_combo(X, H), writeln(H, X), find_path(H).
