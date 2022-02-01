@@ -7,7 +7,7 @@ connect(start, 2).
 connect(1, 7).
 
 %2
-%connect(2, start).
+connect(2, start).
 connect(2, 3).
 connect(2, 8).
 
@@ -128,7 +128,7 @@ connect(31, 32).
 %32
 connect(32, 31).
 connect(32, 33).
-%connect(32, finish).
+connect(32, finish).
 
 %33
 connect(33, 32).
@@ -147,20 +147,11 @@ connect(35, 36).
 connect(36, 30).
 connect(36, 35).
 
+/* το is_combo/2 παίρνει ως όρισμα 2 αριθμούς και βλέπει αν είναι συνδεδεμένοι μεταξύ τους, ανεξάρτητα από τη σειρά. */
 is_combo(X, Y) :- connect(X, Y); connect(Y, X).
-neighbor(X, Y) :- X - Y =:= 6; Y - X =:= 6; X - Y =:= 1; Y - X =:= 1.
 
-is_related(X, Y) :- connect(X, Y), neighbor(X, Y).
+go(From, To, Path) :- go(From, To, [], Path).
 
-path(X, Z) :- is_related(X, Z).
-path(X, Z) :- is_related(X, Y), path(Z, Y), writeln(Y).
-
-/*
-pathlist([]).
-
-append([], X, X).
-append([H | Tail], X, [H | Tail2]) :- append(Tail, X, Tail2).
-
-should_i_stop(X) :- X < 50.
-find_path(X) :- H is X+1, is_combo(X, H), write(X), find_path(H).
-*/
+go(X, X, T, T).
+go(X, Y, T, NT) :-
+    is_combo(X, Z), \+ member(Z, T), go(Z, Y, [Z|T], NT).
