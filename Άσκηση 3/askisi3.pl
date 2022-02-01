@@ -150,8 +150,8 @@ connect(36, 35).
 /* το is_combo/2 παίρνει ως όρισμα 2 αριθμούς και βλέπει αν είναι συνδεδεμένοι μεταξύ τους, ανεξάρτητα από τη σειρά. */
 is_combo(X, Y) :- connect(X, Y); connect(Y, X).
 
-go(From, To, Path) :- go(From, To, [], Path).
+find_path(Destination, Source, Path) :- find_path(Destination, Source, [], Path).
 
-go(X, X, T, T).
-go(X, Y, T, NT) :-
-    is_combo(X, Z), \+ member(Z, T), go(Z, Y, [Z|T], NT).
+find_path(A, A, T, T).
+find_path(A, B, T, T2) :- 
+    is_combo(A, C), \+ member(C, T), find_path(C, B, [C|T], T2).
